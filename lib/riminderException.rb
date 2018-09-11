@@ -10,6 +10,12 @@ class RiminderArgumentException < RiminderException
     end
 end
 
+class RiminderWebhookException < RiminderException
+    def initialize(msg)
+        super(msg)
+    end
+end
+
 class RiminderTransfertException < RiminderException
     def initialize(msg, exp)
         msg = msg + exp.to_s + ' => ' + exp.backtrace.to_s

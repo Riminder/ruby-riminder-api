@@ -22,7 +22,7 @@ class ReqUtils
     end
 
     def self.validateTrainingMetadata(to_validate)
-        if (to_validate.kind_of?(NilClass) || to_validate.nil)
+        if (to_validate.kind_of?(NilClass) || to_validate.nil?)
             return to_validate
         end
         # True if have to be filled els otherwise
@@ -31,12 +31,15 @@ class ReqUtils
             raise RiminderArgumentException.new('Training metadatas should be an array.')
         end
         mandatory_keys.each_pair{|key, shouldbefilled|
-            if (!to_validate.key?(key))
-                raise RiminderArgumentException.new('All training metadata should contain %s' [key])
-            end
-            if (shouldbefilled && to_validate[key].blank?)
-                raise RiminderArgumentException.new('All training metadata should contain %s not nil or empty' [key])
-            end
+            to_validate.each {|to_validate_elem|
+                if (!to_validate_elem.key?(key))
+                    raise RiminderArgumentException.new('All training metadata should contain %s' [key])
+                end
+                if (shouldbefilled && to_validate_elem[key].blank?)
+                    raise RiminderArgumentException.new('All training metadata should contain %s not nil or empty' [key])
+                end
+
+            }
         }
         return to_validate
     end

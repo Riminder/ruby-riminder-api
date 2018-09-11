@@ -35,7 +35,7 @@ class Profile
         payload = ReqUtils.add_if_not_blank(payload, 'timestamp_reception', options['timestamp_reception'])
         payload = ReqUtils.add_if_not_blank(payload, 'training_metadata', ReqUtils.validateTrainingMetadata(options['training_metadata']))
         resp = @clientw.postfile('profile', file_path, payload)
-        return resp
+        return resp["data"]
     end
 
 
@@ -46,7 +46,7 @@ class Profile
         query = ReqUtils.add_if_not_blank(query, 'profile_id', options['profile_id'])
         query = ReqUtils.add_if_not_blank(query, 'profile_reference', options['profile_reference'])
         resp = @clientw.get("profile", query)
-        return resp
+        return resp["data"]
     end
 
     def list(options)
@@ -73,7 +73,7 @@ class Profile
         query = ReqUtils.add_if_not_blank(query, 'order_by', options['order_by'])
 
         resp = @clientw.get('profiles', query)
-        return resp
+        return resp["data"]
     end
 
     class Documents
@@ -89,7 +89,7 @@ class Profile
             query = ReqUtils.add_if_not_blank(query, 'profile_id', options['profile_id'])
             query = ReqUtils.add_if_not_blank(query, 'profile_reference', options['profile_reference'])
             resp = @clientw.get("profile/documents", query)
-            return resp
+            return resp["data"]
         end
     end
 
@@ -106,7 +106,7 @@ class Profile
             query = ReqUtils.add_if_not_blank(query, 'profile_id', options['profile_id'])
             query = ReqUtils.add_if_not_blank(query, 'profile_reference', options['profile_reference'])
             resp = @clientw.get("profile/parsing", query)
-            return resp
+            return resp["data"]
         end 
     end
 
@@ -123,7 +123,7 @@ class Profile
             query = ReqUtils.add_if_not_blank(query, 'profile_id', options['profile_id'])
             query = ReqUtils.add_if_not_blank(query, 'profile_reference', options['profile_reference'])
             resp = @clientw.get("profile/scoring", query)
-            return resp
+            return resp['data']
         end 
     end
 
@@ -139,7 +139,7 @@ class Profile
             }
             payload = ReqUtils.add_if_not_blank(payload, 'training_metadata', ReqUtils.validateTrainingMetadata(options['training_metadata']))
             resp = @clientw.post('profile/json/check', payload)
-            return resp
+            return resp['data']
         end
 
         def add(options)
@@ -151,7 +151,7 @@ class Profile
             payload = ReqUtils.add_if_not_blank(payload, 'timestamp_reception', options['timestamp_reception'])
             payload = ReqUtils.add_if_not_blank(payload, 'training_metadata', ReqUtils.validateTrainingMetadata(options['training_metadata']))
             resp = @clientw.post('profile/json', payload)
-            return resp
+            return resp['data']
         end
     end
 
@@ -171,6 +171,7 @@ class Profile
             payload = ReqUtils.add_if_not_blank(payload, 'filter_id', options['filter_id'])
             payload = ReqUtils.add_if_not_blank(payload, 'filter_reference', options['filter_reference'])
             resp = @clientw.patch("profile/stage", payload)
+            return resp['data']
         end
     end
 
@@ -190,6 +191,7 @@ class Profile
             payload = ReqUtils.add_if_not_blank(payload, 'filter_id', options['filter_id'])
             payload = ReqUtils.add_if_not_blank(payload, 'filter_reference', options['filter_reference'])
             resp = @clientw.patch("profile/rating", payload)
+            return resp['data']
         end
     end
 

@@ -9,7 +9,7 @@ class Filter
 
     def list()
         resp = @clientw.get("filters")
-        return resp
+        return resp['data']
     end
 
     def get(options)
@@ -17,6 +17,6 @@ class Filter
         query = ReqUtils.add_if_not_blank(query, 'filter_id', options['filter_id'])
         query = ReqUtils.add_if_not_blank(query, 'filter_reference', options['filter_reference'])
         resp = @clientw.get("filter", query)
-        return resp
+        return resp['data']
     end
 end

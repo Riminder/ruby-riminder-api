@@ -54,6 +54,9 @@ def gen_profilejson()
 end
 
 api = Riminder.new("ask_874138568ebde822652c3ddf2218333a")
-resp = api.profile.json.add "profile_json" => gen_profilejson(), "source_id" => "fe6d7a2aa9125259a5ecf7905154a0396a891c06" 
 
+resp = api.profile.stage.set "source_id" => "fe6d7a2aa9125259a5ecf7905154a0396a891c06", 
+    "profile_id" => "be50e7e57f4ad045ac8c406e7b665d409be9e363",
+    "filter_id" => "050bdaa9cedad3cf2bc2fac3e4e4acb7499d762a", "stage" => "NO"
+resp = api.filter.list()
 puts(resp)
