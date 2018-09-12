@@ -15,7 +15,7 @@ class TestHelper
     attr_reader :filter_reference
     attr_reader :cv_test_path
     def initialize
-        @api_key = 'ask_874138568ebde822652c3ddf2218333a'
+        @api_key = ''
         @webhook_key = 'valid_key_haha'
         @profile_id = 'be50e7e57f4ad045ac8c406e7b665d409be9e363'
         @profile_reference = '5279'

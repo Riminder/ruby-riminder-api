@@ -60,3 +60,4 @@ resp = api.profile.stage.set "source_id" => "fe6d7a2aa9125259a5ecf7905154a0396a8
     "filter_id" => "050bdaa9cedad3cf2bc2fac3e4e4acb7499d762a", "stage" => "NO"
 resp = api.filter.list()
 puts(resp)
+
