@@ -7,6 +7,7 @@ A ruby api client for Riminder api.
 ## Instalation with ruby gems
 
 ```shell
+gem install Riminder
 ```
 
 ## Authentification
