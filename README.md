@@ -320,6 +320,7 @@ Some tests are available. To run them follow these steps:
 
 * `git clone git@github.com:Riminder/ruby-riminder-api.git`
 * `cd ruby-riminder-api`
+* `bundle install`
 * `rspec --format doc`
 
 ## Help and documentation
