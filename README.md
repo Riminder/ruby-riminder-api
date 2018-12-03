@@ -21,7 +21,7 @@ Then create a new `Riminder` object with this key:
     require 'riminder'
 
     # Authentification to api
-    client = Riminder.new("your shinny key")
+    client = Riminder.new("your shiny key")
 
     # Finally you can use the api!!
 ```
@@ -32,7 +32,7 @@ Then create a new `Riminder` object with this key:
     require 'riminder'
 
 
-    client = Riminder.new("your shinny key")
+    client = Riminder.new("your shiny key")
 
     # Let's retrieve a profile.
     profile = client.profile.get "source_id" => "a source id", 
@@ -51,7 +51,7 @@ If an error occurs while an operation an exception inherited from `RiminderExcep
     require 'riminderException'
 
 
-    client = Riminder.new("your shinny key")
+    client = Riminder.new("your shiny key")
 
     begin
         profile = client.profile.get "source_id" => "a source id",
@@ -175,6 +175,19 @@ resp = client.profile.parsing.get "source_id" => source_id, "profile_id" => prof
 
 ```ruby
 resp = client.profile.scoring.list "source_id" => source_id, "profile_reference" => profile_reference
+```
+
+* Reveal the interpretability result of a specific profile.
+  * Arguments: Hash containing
+    * `"source_id"` id of the source containing the profile (*required*)
+    * `"profile_id"` id of the profile (*required*)
+    * `"profile_reference"` reference of the profile (*required*)
+    * `"filter_id"` id of the target filter (*required*)
+    * `"filter_reference"` reference of the target filter (*required*)
+  * Returns: Array of Hash containing the profile's scores for the specified filter.
+
+```ruby
+resp = client.profile.reveal.get "source_id" => source_id, "profile_id" => profile_id, "filter_reference" => filter_reference
 ```
 
 * Set stage of a specific profile for a spcified filter.
