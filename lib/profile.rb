@@ -203,7 +203,7 @@ class Profile
             @clientw = clientw
         end
 
-        def set(options)
+        def get(options)
             payload = {
                 "source_id" => options['source_id']
             }
