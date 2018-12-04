@@ -187,7 +187,7 @@ resp = client.profile.scoring.list "source_id" => source_id, "profile_reference"
   * Returns: Array of Hash containing the profile's scores for the specified filter.
 
 ```ruby
-resp = client.profile.reveal.get "source_id" => source_id, "profile_id" => profile_id, "filter_reference" => filter_reference
+resp = client.profile.revealing.get "source_id" => source_id, "profile_id" => profile_id, "filter_reference" => filter_reference
 ```
 
 * Set stage of a specific profile for a spcified filter.

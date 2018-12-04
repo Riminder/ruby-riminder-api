@@ -9,7 +9,7 @@ class Profile
     attr_reader :json
     attr_reader :stage
     attr_reader :rating
-    attr_reader :reveal
+    attr_reader :revealing
     DEFAULT_DATE_START = '1347209668'
 
     def initialize(clientw)
@@ -21,7 +21,7 @@ class Profile
         @json = Json.new(@clientw)
         @stage = Stage.new(@clientw)
         @rating = Rating.new(@clientw)
-        @reveal = Reveal.new(@clientw)
+        @revealing = Revealing.new(@clientw)
 
     end
 
@@ -197,7 +197,7 @@ class Profile
         end
     end
 
-    class Reveal
+    class Revealing
         @clientw
         def initialize(clientw)
             @clientw = clientw
@@ -211,7 +211,7 @@ class Profile
             payload = ReqUtils.add_if_not_blank(payload, 'profile_reference', options['profile_reference'])
             payload = ReqUtils.add_if_not_blank(payload, 'filter_id', options['filter_id'])
             payload = ReqUtils.add_if_not_blank(payload, 'filter_reference', options['filter_reference'])
-            resp = @clientw.get("profile/interpretability", payload)
+            resp = @clientw.get("profile/revealing", payload)
             return resp['data']
         end
     end
