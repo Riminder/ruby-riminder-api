@@ -30,7 +30,7 @@ class RiminderResponseException < RiminderException
     def initialize(msg, exp)
         response_body = exp.http_body
         if (response_body.length >= 201)
-            response_body = response_body.str[0, 200] + '...'
+            response_body = response_body[0, 200] + '...'
         end
         msg = msg + exp.to_s + " => " + response_body
 
