@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'Riminder'
-  s.version     = '1.0.0'
+  s.version     = '1.1.0'
   s.licenses    = ['MIT']
   s.summary     = "A ruby api client for Riminder api."
   s.description = "A api client for riminder, permit to access and manipulate some Riminder's services without the web interface."

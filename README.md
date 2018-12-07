@@ -4,7 +4,9 @@
 
 A ruby api client for Riminder api.
 
-## Instalation with ruby gems
+## Installation with ruby gems
+
+You should have a >= 2.5 Ruby version installed.
 
 ```shell
 gem install Riminder
